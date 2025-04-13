@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 # install basic utilities
 RUN apt-get update && \
-	apt-get install -y curl unzip gnupg software-properties-common awscli git bash apt-transport-https ca-certificates
+	apt-get install -y curl unzip gnupg software-properties-common git ca-certificates
 
 # install terraform
 RUN curl -fsSL https://apt.releases.hashicorp.com/gpg | gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg && \
@@ -14,6 +14,12 @@ ENV KUBECTL_VERSION=v1.29.3
 RUN curl -LO https://dl.k8s.io/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl && \
     install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl && \
     rm kubectl
+
+# install AWS-CLI
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+    ./aws/install && \
+    rm -rf aws awscliv2.zip
 
 WORKDIR /workspace
 

@@ -1,0 +1,8 @@
+# Terraform artifacts to exclude
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfplan
+TeraKube_plan
+plan_output.txt
+

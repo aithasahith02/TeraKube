@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      IMAGE_NAME: sahithaitha02/terakube-nginx:latest
+      IMAGE_NAME: sahithaitha02/terakube-nginx
       EKS_CLUSTER_NAME: TeraKube-eks
       AWS_REGION: us-east-1
 

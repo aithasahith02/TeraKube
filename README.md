@@ -5,6 +5,8 @@
 TeraKube is a fully automated DevOps project that provisions a Kubernetes cluster on AWS using Terraform, containerizes an NGINX-based app with Docker, and deploys it seamlessly using GitHub Actions. The entire workflow is designed to be cost-efficient, scalable, and infrastructure-as-code compliant.
 
 To maintain a clean development environment, we developed this project entirely within a Docker Ubuntu container on macOS, ensuring full isolation from the host system.
+
+> Note: The live deployment step in the GitHub Actions workflow may show a failure after initial success because the EKS cluster and other AWS resources are deliberately destroyed using terraform destroy to minimize cost. This is expected behavior and not a pipeline issue.
 * * *
 
 ## 🧰 Tech Stack
@@ -32,8 +34,11 @@ TeraKube/
 └── README.md                          # You're here!
 ```
 
-* * *
+<p align="center">
+  <img src="images/pipeline.png" alt="App Screenshot" width="600"/>
+</p>
 
+* * *
 ## 🌐 Infrastructure Provisioning with Terraform
 
 We used Terraform to provision the following AWS resources:
